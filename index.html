@@ -8,112 +8,193 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
-  <header class="portfolio-header">
-    <img src="resources/propic.jpg" alt="Uchhas Dewan" class="profile-pic" />
-    <h1>Uchhas Dewan</h1>
-    <p><em>Software Engineer</em></p>
-    <p>SuffixIt Ltd, Dhaka, Bangladesh</p>
-    <div class="social-links">
-      <a href="mailto:uchhasmacap@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-      <a href="https://www.facebook.com/uchhasdewan/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
-      <a href="https://x.com/DewanUchhas" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-      <a href="https://www.linkedin.com/in/uchhas-dewan13" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      <a href="https://github.com/UchhasDewan1847" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-    </div>  
-  </header>
 
-  <section id="about" class="section">
-    <h2>About Me</h2>
-    <p>
-      I'm a <strong>backend developer</strong> with over 2 years of practical experience in building scalable, maintainable systems using <strong>Java</strong> and the <strong>Spring ecosystem</strong>—including tools like <em>Spring Boot</em>, <em>Spring Security</em>, and <em>Spring Data JPA</em>.
-    </p>
-    <p>
-      I enjoy working on <strong>cloud-native applications</strong> and have hands-on experience with <strong>REST APIs</strong>, <strong>GraphQL</strong>, <strong>gRPC</strong>, and <strong>WebSocket</strong> communication. I'm also comfortable building <em>reactive systems</em> using <strong>Spring WebFlux</strong>.
-    </p>
-    <p>
-      I'm passionate about <strong>system design</strong> and always looking to improve my skills in <strong>DevOps</strong> practices like CI/CD, containerization, and deployment automation. I thrive in collaborative environments where clean code and thoughtful architecture matter.
-    </p>
-    <p>
-      Recently, I've been exploring how backend systems can integrate with <strong>AI</strong> to solve practical problems. I'm particularly interested in <em>transformer-based models</em> for tasks like language processing, and using <em>OpenCV</em> for real-time computer vision. I'm also diving deeper into <em>deep learning</em> with neural networks, aiming to understand and apply models built with <em>TensorFlow</em> and <em>PyTorch</em>. My focus is on building intelligent, backend-driven systems that go beyond automation—adding meaningful, AI-powered features that improve real-world user experiences.
-    </p>
-    
-  </section>
-  
-  
+  <nav class="top-nav" id="top-nav">
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#publications">Publications</a>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode">
+      <i class="fas fa-moon"></i>
+    </button>
+  </nav>
 
-  <section id="projects" class="section">
-    <h2>Projects</h2>
-    <div class="project-card">
-      <h3>Marketing and Sales System</h3>
-      <p><em>Backend Developer | Jan 2024 – Present</em></p>
-      <ul>
-        <li>Optimized backend infrastructure for a marketing mobile app.</li>
-        <li>Implemented client-specific product sales and discount logic.</li>
-      </ul>
-    </div>
-    <div class="project-card">
-      <h3>Helmet Detection System</h3>
-      <p><em>AI Developer | Oct 2022 – Nov 2022</em></p>
-      <ul>
-        <li>Built a YOLOv5 model to detect helmets in real-time video streams.</li>
-        <li>Delivered a prototype showcasing real-time inference and safety use-cases.</li>
-      </ul>
-    </div>
-  </section>
+  <div class="content-wrap">
 
-  <section id="experience" class="section">
-    <h2>Experience</h2>
-    <div class="experience-card">
-      <h3>Junior Software Engineer</h3>
-      <p><em>SuffixIt Ltd | Jan 2024 – Present</em></p>
-      <ul>
-        <li>Developing and maintaining backend services tailored to client needs.</li>
-      </ul>
-    </div>
-    <div class="experience-card">
-      <h3>Intern Software Engineer</h3>
-      <p><em>SuffixIt Ltd | Oct 2023 – Dec 2023</em></p>
-      <ul>
-        <li>Learned backend development tools and system design principles.</li>
-      </ul>
-    </div>
-  </section>
+    <header class="portfolio-header">
+      <img src="resources/propic-3.jpg" alt="Uchhas Dewan" class="profile-pic" />
+      <h1>Uchhas Dewan</h1>
+      <p class="subtitle"><span id="typed-text"></span><span class="typing-cursor"></span></p>
+      <p class="location">SuffixIt Ltd &mdash; Dhaka, Bangladesh</p>
+      <div class="social-links">
+        <a href="mailto:uchhasmacap@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.facebook.com/uchhasdewan/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://x.com/DewanUchhas" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.linkedin.com/in/uchhas-dewan13" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/UchhasDewan1847" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+      </div>
+    </header>
 
-  <section id="skills" class="section">
-    <h2>Skills</h2>
-    <div class="skills-grid">
-      <div><strong>Languages:</strong> Java, Python, C++, JS, Dart</div>
-      <div><strong>Frameworks:</strong> Spring Boot, Flutter</div>
-      <div><strong>Databases:</strong> MySQL, PostgreSQL, MongoDB</div>
-      <div><strong>Tools:</strong> Git, Postman, Jupyter, VS Code, Android Studio</div>
-      <div><strong>Soft Skills:</strong> Problem-solving, Teamwork, Adaptability</div>
-    </div>
-  </section>
+    <section id="about" class="section reveal">
+      <h2>About Me</h2>
+      <p>
+        I'm a <strong>backend developer</strong> with over 2 years of practical experience in building scalable, maintainable systems using <strong>Java</strong> and the <strong>Spring ecosystem</strong>&mdash;including tools like <em>Spring Boot</em>, <em>Spring Security</em>, and <em>Spring Data JPA</em>.
+      </p>
+      <p>
+        I enjoy working on <strong>cloud-native applications</strong> and have hands-on experience with <strong>REST APIs</strong>, <strong>GraphQL</strong>, <strong>gRPC</strong>, and <strong>WebSocket</strong> communication. I'm also comfortable building reactive systems using <em>Spring WebFlux</em>.
+      </p>
+      <p>
+        I'm passionate about <strong>system design</strong> and always looking to improve my skills in <strong>DevOps</strong> practices like CI/CD, containerization, and deployment automation. I thrive in collaborative environments where clean code and thoughtful architecture matter.
+      </p>
+      <p>
+        Recently, I've been exploring how backend systems can integrate with <strong>AI</strong> to solve practical problems. I'm particularly interested in <em>transformer-based models</em> for language processing, and using <em>OpenCV</em> for real-time computer vision. I'm also diving deeper into <em>deep learning</em> with neural networks, aiming to understand and apply models built with <em>TensorFlow</em> and <em>PyTorch</em>.
+      </p>
+    </section>
 
-  <section id="education" class="section">
-    <h2>Education</h2>
-    <div class="education-card">
-      <h3>CUET — BSc in CSE</h3>
-      <p>Jan 2018 – Jul 2023 | GPA: 3.54</p>
-      <p>Thesis: Safety App & Suspicious Activity Prediction using ML</p>
-    </div>
-    <div class="education-card">
-      <h3>Sylhet Cadet College</h3>
-      <p>SSC & HSC | GPA: 5.00</p>
-    </div>
-  </section>
+    <section id="projects" class="section">
+      <h2>Projects</h2>
+      <div class="project-card reveal">
+        <h3>Marketing and Sales System</h3>
+        <p><em>Backend Developer &nbsp;|&nbsp; Jan 2024 &ndash; Present</em></p>
+        <ul>
+          <li>Optimized backend infrastructure for a marketing mobile app.</li>
+          <li>Implemented client-specific product sales and discount logic.</li>
+        </ul>
+      </div>
+      <div class="project-card reveal">
+        <h3>Helmet Detection System</h3>
+        <p><em>AI Developer &nbsp;|&nbsp; Oct 2022 &ndash; Nov 2022</em></p>
+        <ul>
+          <li>Built a YOLOv5 model to detect helmets in real-time video streams.</li>
+          <li>Delivered a prototype showcasing real-time inference and safety use-cases.</li>
+        </ul>
+      </div>
+    </section>
 
-  <section id="publications" class="section">
-    <h2>Publications</h2>
-    <p>
-      Co-author of <em>"Privilege: A Mobile App for Transport Safety & Emergency Assistance"</em>, presented at ICDECS 2024, Bangalore, India. <br />
-      <a href="https://doi.org/10.1109/ICDECS59733.2023.10503104" target="_blank">Read the paper</a>
-    </p>
-  </section>
+    <section id="experience" class="section">
+      <h2>Experience</h2>
+      <div class="experience-card reveal">
+        <h3>Junior Software Engineer</h3>
+        <p><em>SuffixIt Ltd &nbsp;|&nbsp; Jan 2024 &ndash; Present</em></p>
+        <ul>
+          <li>Developing and maintaining backend services tailored to client needs.</li>
+        </ul>
+      </div>
+      <div class="experience-card reveal">
+        <h3>Intern Software Engineer</h3>
+        <p><em>SuffixIt Ltd &nbsp;|&nbsp; Oct 2023 &ndash; Dec 2023</em></p>
+        <ul>
+          <li>Learned backend development tools and system design principles.</li>
+        </ul>
+      </div>
+    </section>
 
-  <footer>
-    <p>© 2025 Uchhas Dewan. All rights reserved.</p>
-  </footer>
+    <section id="skills" class="section">
+      <h2>Skills</h2>
+
+      <div class="skill-category reveal">
+        <strong>Languages</strong>
+        <div class="skill-tags">
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">C++</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">Dart</span>
+        </div>
+      </div>
+
+      <div class="skill-category reveal">
+        <strong>Frameworks</strong>
+        <div class="skill-tags">
+          <span class="skill-tag">Spring Boot</span>
+          <span class="skill-tag">Spring Security</span>
+          <span class="skill-tag">Spring Data JPA</span>
+          <span class="skill-tag">Spring WebFlux</span>
+          <span class="skill-tag">Flutter</span>
+        </div>
+      </div>
+
+      <div class="skill-category reveal">
+        <strong>APIs &amp; Protocols</strong>
+        <div class="skill-tags">
+          <span class="skill-tag">REST</span>
+          <span class="skill-tag">GraphQL</span>
+          <span class="skill-tag">gRPC</span>
+          <span class="skill-tag">WebSocket</span>
+        </div>
+      </div>
+
+      <div class="skill-category reveal">
+        <strong>Databases</strong>
+        <div class="skill-tags">
+          <span class="skill-tag">MySQL</span>
+          <span class="skill-tag">PostgreSQL</span>
+          <span class="skill-tag">MongoDB</span>
+        </div>
+      </div>
+
+      <div class="skill-category reveal">
+        <strong>AI / ML</strong>
+        <div class="skill-tags">
+          <span class="skill-tag">TensorFlow</span>
+          <span class="skill-tag">PyTorch</span>
+          <span class="skill-tag">OpenCV</span>
+          <span class="skill-tag">YOLOv5</span>
+        </div>
+      </div>
+
+      <div class="skill-category reveal">
+        <strong>Tools &amp; DevOps</strong>
+        <div class="skill-tags">
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">Postman</span>
+          <span class="skill-tag">Jupyter</span>
+          <span class="skill-tag">VS Code</span>
+          <span class="skill-tag">Android Studio</span>
+        </div>
+      </div>
+
+      <div class="skill-category reveal">
+        <strong>Soft Skills</strong>
+        <div class="skill-tags">
+          <span class="skill-tag">Problem-solving</span>
+          <span class="skill-tag">Teamwork</span>
+          <span class="skill-tag">Adaptability</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="section">
+      <h2>Education</h2>
+      <div class="education-card reveal">
+        <h3>CUET &mdash; BSc in Computer Science &amp; Engineering</h3>
+        <p><em>Jan 2018 &ndash; Jul 2023 &nbsp;|&nbsp; GPA: 3.54</em></p>
+        <p>Thesis: Safety App &amp; Suspicious Activity Prediction using ML</p>
+      </div>
+      <div class="education-card reveal">
+        <h3>Sylhet Cadet College</h3>
+        <p><em>SSC &amp; HSC &nbsp;|&nbsp; GPA: 5.00</em></p>
+      </div>
+    </section>
+
+    <section id="publications" class="section reveal">
+      <h2>Publications</h2>
+      <p>
+        Co-author of <em>"Privilege: A Mobile App for Transport Safety &amp; Emergency Assistance"</em>, presented at <strong>ICDECS 2024</strong>, Bangalore, India.<br />
+        <a href="https://doi.org/10.1109/ICDECS59733.2023.10503104" target="_blank">Read the paper &rarr;</a>
+      </p>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Uchhas Dewan. All rights reserved.</p>
+    </footer>
+
+  </div>
 
   <script src="js/scripts.js"></script>
 </body>
