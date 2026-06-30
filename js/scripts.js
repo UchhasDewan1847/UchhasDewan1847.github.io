@@ -66,6 +66,22 @@ revealEls.forEach((el, i) => {
   revealObserver.observe(el);
 });
 
+// ==================== Certificate Filters (certificates.html only) ====================
+const filterBtns = document.querySelectorAll('.cert-filter-btn');
+if (filterBtns.length) {
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.cert-card-v2').forEach(card => {
+        const match = filter === 'all' || card.dataset.category === filter;
+        card.classList.toggle('hidden', !match);
+      });
+    });
+  });
+}
+
 // ==================== Active Nav on Scroll ====================
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-links a');
