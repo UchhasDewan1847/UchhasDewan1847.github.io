@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects | Uchhas Dewan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <nav class="top-nav" id="top-nav">
+    <div class="nav-links">
+      <a href="index.html"><i class="fas fa-arrow-left"></i> Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#experience">Experience</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="certificates.html">Certificates</a>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode">
+      <i class="fas fa-moon"></i>
+    </button>
+  </nav>
+
+  <div class="content-wrap">
+
+    <div class="cert-page-header reveal">
+      <h1>Projects</h1>
+      <p>Professional, academic, and AI projects built over the past few years</p>
+    </div>
+
+    <div class="cert-filters reveal">
+      <button class="proj-filter-btn cert-filter-btn active" data-filter="all">All <span class="cert-count">3</span></button>
+      <button class="proj-filter-btn cert-filter-btn" data-filter="professional">Professional <span class="cert-count">1</span></button>
+      <button class="proj-filter-btn cert-filter-btn" data-filter="academic">Academic <span class="cert-count">1</span></button>
+      <button class="proj-filter-btn cert-filter-btn" data-filter="ai">AI / Research <span class="cert-count">1</span></button>
+    </div>
+
+    <div class="proj-grid">
+
+      <!-- ===== MARKETING AND SALES SYSTEM ===== -->
+      <div class="proj-card reveal" data-category="professional">
+        <div class="proj-card-top">
+          <span class="proj-badge proj-badge-professional">Professional</span>
+          <span class="proj-period"><i class="fas fa-calendar-alt"></i> Jan 2024 &ndash; Present</span>
+        </div>
+
+        <h3>Marketing and Sales System</h3>
+
+        <p class="proj-meta">
+          <span class="org">SuffixIt Ltd</span>
+          <span class="period">Backend / Full-time</span>
+        </p>
+
+        <div>
+          <ul>
+            <li>Maintained and optimized backend for a real-time custom marketing application serving active clients.</li>
+            <li>Built scalable modules using Spring Boot and microservices architecture.</li>
+            <li>Integrated client-specific product sales logic and dynamic discount policy systems.</li>
+            <li>Designed system architecture following requirement analysis and client specifications.</li>
+            <li>Collaborated with frontend and mobile teams to deliver seamless API integrations.</li>
+          </ul>
+        </div>
+
+        <div class="proj-tech-row">
+          <span class="proj-tech-tag">Java</span>
+          <span class="proj-tech-tag">Spring Boot</span>
+          <span class="proj-tech-tag">Spring Security</span>
+          <span class="proj-tech-tag">Spring Data JPA</span>
+          <span class="proj-tech-tag">MySQL</span>
+          <span class="proj-tech-tag">REST API</span>
+          <span class="proj-tech-tag">Microservices</span>
+          <span class="proj-tech-tag">Docker</span>
+        </div>
+      </div>
+
+      <!-- ===== PASSENGER SAFETY ASSISTANCE APP ===== -->
+      <div class="proj-card reveal" data-category="academic">
+        <div class="proj-card-top">
+          <span class="proj-badge proj-badge-academic">Academic &mdash; Thesis</span>
+          <span class="proj-period"><i class="fas fa-calendar-alt"></i> Jan 2023 &ndash; Jul 2023</span>
+        </div>
+
+        <h3>Passenger Safety Assistance App &ldquo;Privilege&rdquo;</h3>
+
+        <p class="proj-meta">
+          <span class="org">Chittagong University of Engineering &amp; Technology (CUET)</span>
+          <span class="period">BSc Thesis Project</span>
+        </p>
+
+        <div>
+          <ul>
+            <li>Designed an ML-integrated mobile application for transport passenger safety and emergency assistance.</li>
+            <li>Implemented real-time driver behavior analysis using machine learning models to detect suspicious activity.</li>
+            <li>Built emergency features with user verification and intelligent risk detection capabilities.</li>
+            <li>Focused on improving passenger security through behavior monitoring and predictive alerting.</li>
+            <li>Research findings published and presented at <strong>IEEE ICDECS 2024</strong>, Bangalore, India (co-authored with Dr. Mahfuzulhoq Chowdhury).</li>
+          </ul>
+        </div>
+
+        <div class="proj-tech-row">
+          <span class="proj-tech-tag">Flutter</span>
+          <span class="proj-tech-tag">Python</span>
+          <span class="proj-tech-tag">TensorFlow</span>
+          <span class="proj-tech-tag">Scikit-learn</span>
+          <span class="proj-tech-tag">Firebase</span>
+          <span class="proj-tech-tag">Machine Learning</span>
+          <span class="proj-tech-tag">REST API</span>
+        </div>
+
+        <div class="proj-card-links">
+          <a href="https://doi.org/10.1109/ICDECS59733.2023.10503104" target="_blank" class="proj-link">
+            <i class="fas fa-file-alt"></i> Read IEEE Paper &rarr;
+          </a>
+        </div>
+      </div>
+
+      <!-- ===== HELMET DETECTION SYSTEM ===== -->
+      <div class="proj-card reveal" data-category="ai">
+        <div class="proj-card-top">
+          <span class="proj-badge proj-badge-ai">AI / Research</span>
+          <span class="proj-period"><i class="fas fa-calendar-alt"></i> Oct 2022 &ndash; Nov 2022</span>
+        </div>
+
+        <h3>Helmet Detection System</h3>
+
+        <p class="proj-meta">
+          <span class="org">Ticon System Ltd</span>
+          <span class="period">AI Model Developer</span>
+        </p>
+
+        <div>
+          <ul>
+            <li>Developed a YOLOv5-based AI model for real-time helmet detection in live video streams.</li>
+            <li>Built and annotated a custom dataset from scratch, covering diverse helmet and no-helmet scenarios.</li>
+            <li>Tuned model hyperparameters and validated performance for reliable real-time inference.</li>
+            <li>Delivered a functional prototype demonstrating real-time detection and safety use-cases.</li>
+            <li>Presented project outcomes to faculty members at the CUET Department of CSE.</li>
+          </ul>
+        </div>
+
+        <div class="proj-tech-row">
+          <span class="proj-tech-tag">Python</span>
+          <span class="proj-tech-tag">YOLOv5</span>
+          <span class="proj-tech-tag">OpenCV</span>
+          <span class="proj-tech-tag">Computer Vision</span>
+          <span class="proj-tech-tag">Dataset Annotation</span>
+          <span class="proj-tech-tag">PyTorch</span>
+        </div>
+      </div>
+
+    </div>
+
+    <footer>
+      <p>&copy; 2025 Uchhas Dewan. All rights reserved.</p>
+    </footer>
+
+  </div>
+
+  <script src="js/scripts.js"></script>
+</body>
+</html>

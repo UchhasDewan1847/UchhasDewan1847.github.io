@@ -84,6 +84,22 @@ if (filterBtns.length) {
   });
 }
 
+// ==================== Project Filters (projects.html only) ====================
+const projFilterBtns = document.querySelectorAll('.proj-filter-btn');
+if (projFilterBtns.length) {
+  projFilterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      projFilterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.proj-card').forEach(card => {
+        const match = filter === 'all' || card.dataset.category === filter;
+        card.classList.toggle('hidden', !match);
+      });
+    });
+  });
+}
+
 // ==================== Stat Counters ====================
 const statNumbers = document.querySelectorAll('.stat-number');
 if (statNumbers.length) {
