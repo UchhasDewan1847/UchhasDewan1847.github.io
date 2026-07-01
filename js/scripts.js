@@ -25,29 +25,31 @@ const roles = [
 ];
 
 const typedEl = document.getElementById('typed-text');
-let roleIndex = 0, charIndex = 0, isDeleting = false;
+if (typedEl) {
+  let roleIndex = 0, charIndex = 0, isDeleting = false;
 
-function type() {
-  const current = roles[roleIndex];
-  typedEl.textContent = isDeleting
-    ? current.slice(0, --charIndex)
-    : current.slice(0, ++charIndex);
+  function type() {
+    const current = roles[roleIndex];
+    typedEl.textContent = isDeleting
+      ? current.slice(0, --charIndex)
+      : current.slice(0, ++charIndex);
 
-  let delay = isDeleting ? 55 : 95;
+    let delay = isDeleting ? 55 : 95;
 
-  if (!isDeleting && charIndex === current.length) {
-    delay = 1800;
-    isDeleting = true;
-  } else if (isDeleting && charIndex === 0) {
-    isDeleting = false;
-    roleIndex = (roleIndex + 1) % roles.length;
-    delay = 400;
+    if (!isDeleting && charIndex === current.length) {
+      delay = 1800;
+      isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      roleIndex = (roleIndex + 1) % roles.length;
+      delay = 400;
+    }
+
+    setTimeout(type, delay);
   }
 
-  setTimeout(type, delay);
+  type();
 }
-
-type();
 
 // ==================== Scroll Reveal ====================
 const revealEls = document.querySelectorAll('.reveal');
@@ -80,6 +82,31 @@ if (filterBtns.length) {
       });
     });
   });
+}
+
+// ==================== Stat Counters ====================
+const statNumbers = document.querySelectorAll('.stat-number');
+if (statNumbers.length) {
+  const statObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.dataset.counted) {
+        entry.target.dataset.counted = 'true';
+        const target = parseInt(entry.target.dataset.target);
+        const suffix = entry.target.dataset.suffix || '';
+        const start = performance.now();
+        const duration = 1400;
+        const tick = (now) => {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          entry.target.textContent = Math.floor(eased * target) + suffix;
+          if (progress < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  statNumbers.forEach(el => statObserver.observe(el));
 }
 
 // ==================== Active Nav on Scroll ====================
