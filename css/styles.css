@@ -141,14 +141,13 @@ html[data-font="xl"]    { font-size: 125%; }
   overflow: hidden;
 }
 
-/* Portrait photo — right side of hero */
+/* Portrait photo — right 48% of hero, shows upper body / face */
 .hero-bg-photo {
   position: absolute;
   right: 0;
   top: 0;
   height: 100%;
-  width: auto;
-  max-width: 55%;
+  width: 48%;
   object-fit: cover;
   object-position: top center;
   z-index: 0;
@@ -164,16 +163,16 @@ html[data-font="xl"]    { font-size: 125%; }
     linear-gradient(
       to right,
       #0d1117 0%,
-      #0d1117 25%,
-      rgba(13, 17, 23, 0.88) 42%,
-      rgba(13, 17, 23, 0.40) 60%,
-      rgba(13, 17, 23, 0.05) 78%,
-      transparent 92%
+      #0d1117 22%,
+      rgba(13, 17, 23, 0.92) 38%,
+      rgba(13, 17, 23, 0.50) 54%,
+      rgba(13, 17, 23, 0.10) 70%,
+      transparent 84%
     ),
     linear-gradient(
       to top,
-      rgba(0, 0, 0, 0.55) 0%,
-      rgba(0, 0, 0, 0.15) 25%,
+      rgba(0, 0, 0, 0.60) 0%,
+      rgba(0, 0, 0, 0.15) 28%,
       transparent 55%
     );
 }
@@ -1168,20 +1167,20 @@ footer {
   .hero-content { padding: 0 20px 36px; }
   .hero-content h1 { font-size: 2.2rem; }
 
-  /* On mobile the photo shows smaller, fade starts earlier */
-  .hero-bg-photo { max-width: 65%; }
+  /* On mobile, photo narrower and fade starts earlier */
+  .hero-bg-photo { width: 62%; }
   .hero-fade-overlay {
     background:
       linear-gradient(
         to right,
         #0d1117 0%,
-        #0d1117 18%,
-        rgba(13,17,23,0.92) 38%,
-        rgba(13,17,23,0.5) 60%,
-        rgba(13,17,23,0.05) 82%,
-        transparent 95%
+        #0d1117 14%,
+        rgba(13,17,23,0.94) 32%,
+        rgba(13,17,23,0.55) 52%,
+        rgba(13,17,23,0.10) 72%,
+        transparent 88%
       ),
-      linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);
+      linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 50%);
   }
 
   /* Nav: links scroll horizontally, actions stay on the right */
