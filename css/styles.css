@@ -830,16 +830,51 @@ footer {
   margin-bottom: 18px;
 }
 
+/* Brand-styled logo badges */
+.test-brand-logo {
+  display: inline-block;
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  padding: 5px 13px 8px;
+  border-radius: 6px;
+  line-height: 1;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.test-brand-logo.ielts-logo {
+  background: #003478;
+  color: #fff;
+}
+
+.test-brand-logo.ielts-logo::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #e8002d;
+  border-radius: 0 0 5px 5px;
+}
+
+.test-brand-logo.gre-logo {
+  background: #001f5b;
+  color: #fff;
+}
+
 .test-card-name {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.02em;
 }
 
 .test-card-date {
   font-size: 0.78rem;
   color: var(--muted);
+  margin-top: 2px;
 }
 
 .test-validity {
