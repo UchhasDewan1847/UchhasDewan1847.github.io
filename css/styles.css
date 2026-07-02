@@ -135,40 +135,58 @@ html[data-font="xl"]    { font-size: 125%; }
   width: 100%;
   height: 72vh;
   min-height: 460px;
-  background-image: url('../resources/propicJun26.jpeg');
-  background-size: cover;
-  background-position: center 25%;
+  background: linear-gradient(135deg, #0d1117 0%, #101820 100%);
   display: flex;
   align-items: flex-end;
   overflow: hidden;
 }
 
-.hero-overlay {
+/* Portrait photo — right side of hero */
+.hero-bg-photo {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: auto;
+  max-width: 55%;
+  object-fit: cover;
+  object-position: top center;
+  z-index: 0;
+  display: block;
+}
+
+/* Fade overlay: left-to-right (photo fades into bg) + bottom darkening (text readability) */
+.hero-fade-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    160deg,
-    rgba(0, 0, 0, 0.02) 0%,
-    rgba(0, 0, 0, 0.18) 45%,
-    rgba(0, 0, 0, 0.78) 100%
-  );
+  z-index: 1;
+  background:
+    linear-gradient(
+      to right,
+      #0d1117 0%,
+      #0d1117 25%,
+      rgba(13, 17, 23, 0.88) 42%,
+      rgba(13, 17, 23, 0.40) 60%,
+      rgba(13, 17, 23, 0.05) 78%,
+      transparent 92%
+    ),
+    linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.55) 0%,
+      rgba(0, 0, 0, 0.15) 25%,
+      transparent 55%
+    );
 }
 
 .hero-content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   width: 100%;
-  max-width: 960px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 0 28px 44px;
   color: #fff;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 32px;
 }
-
-.hero-text-side { flex: 1; min-width: 0; }
 
 .hero-content h1 {
   font-size: 3.2rem;
@@ -259,23 +277,7 @@ html[data-font="xl"]    { font-size: 125%; }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Hero circular avatar (portrait photo) — in-flow, right side of hero */
-.hero-avatar-wrap {
-  flex-shrink: 0;
-  padding-bottom: 4px;
-  animation: heroFadeUp 0.75s ease 0.6s both;
-}
-
-.hero-avatar {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: center 15%;
-  border: 3px solid rgba(255, 255, 255, 0.85);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
-  display: block;
-}
+/* .hero-avatar-wrap and .hero-avatar removed — photo is now hero-bg-photo */
 
 @keyframes blink {
   0%, 100% { opacity: 1; }
@@ -1163,8 +1165,24 @@ footer {
 
 @media (max-width: 768px) {
   .hero-header { height: 62vh; min-height: 380px; }
-  .hero-content { padding: 0 20px 36px; gap: 16px; }
+  .hero-content { padding: 0 20px 36px; }
   .hero-content h1 { font-size: 2.2rem; }
+
+  /* On mobile the photo shows smaller, fade starts earlier */
+  .hero-bg-photo { max-width: 65%; }
+  .hero-fade-overlay {
+    background:
+      linear-gradient(
+        to right,
+        #0d1117 0%,
+        #0d1117 18%,
+        rgba(13,17,23,0.92) 38%,
+        rgba(13,17,23,0.5) 60%,
+        rgba(13,17,23,0.05) 82%,
+        transparent 95%
+      ),
+      linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);
+  }
 
   /* Nav: links scroll horizontally, actions stay on the right */
   .top-nav { padding: 0 10px; gap: 8px; }
@@ -1180,9 +1198,6 @@ footer {
 
   .theme-toggle { padding: 5px 9px; font-size: 0.85rem; }
   .font-toggle  { padding: 4px 8px; font-size: 0.72rem; }
-
-  /* Hide avatar on mobile — hero is too small */
-  .hero-avatar-wrap { display: none; }
 
   .content-wrap { padding: 20px 14px 50px; }
 

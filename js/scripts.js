@@ -95,12 +95,26 @@ revealEls.forEach((el, i) => {
 // ==================== Certificate Filters (certificates.html only) ====================
 const filterBtns = document.querySelectorAll('.cert-filter-btn');
 if (filterBtns.length) {
+  const allCards = document.querySelectorAll('.cert-card-v2[data-category]');
+
+  // Dynamically update filter button counts so they never go stale
+  filterBtns.forEach(btn => {
+    const filter = btn.dataset.filter;
+    const countEl = btn.querySelector('.cert-count');
+    if (countEl) {
+      const n = filter === 'all'
+        ? allCards.length
+        : document.querySelectorAll(`.cert-card-v2[data-category="${filter}"]`).length;
+      countEl.textContent = n;
+    }
+  });
+
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       const filter = btn.dataset.filter;
-      document.querySelectorAll('.cert-card-v2').forEach(card => {
+      allCards.forEach(card => {
         const match = filter === 'all' || card.dataset.category === filter;
         card.classList.toggle('hidden', !match);
       });
