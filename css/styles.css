@@ -155,6 +155,8 @@ html[data-font="xl"]    { font-size: 125%; }
 }
 
 /* Fade overlay: left-to-right (photo fades into bg) + bottom darkening (text readability) */
+/* Photo left edge sits at ~52% (= 100% - 48% width).
+   Gradient must be nearly opaque AT that edge, then fade right. */
 .hero-fade-overlay {
   position: absolute;
   inset: 0;
@@ -163,11 +165,13 @@ html[data-font="xl"]    { font-size: 125%; }
     linear-gradient(
       to right,
       #0d1117 0%,
-      #0d1117 22%,
-      rgba(13, 17, 23, 0.92) 38%,
-      rgba(13, 17, 23, 0.50) 54%,
-      rgba(13, 17, 23, 0.10) 70%,
-      transparent 84%
+      #0d1117 32%,
+      rgba(13, 17, 23, 0.97) 50%,
+      rgba(13, 17, 23, 0.88) 57%,
+      rgba(13, 17, 23, 0.60) 65%,
+      rgba(13, 17, 23, 0.25) 74%,
+      rgba(13, 17, 23, 0.06) 83%,
+      transparent 92%
     ),
     linear-gradient(
       to top,
@@ -1167,18 +1171,19 @@ footer {
   .hero-content { padding: 0 20px 36px; }
   .hero-content h1 { font-size: 2.2rem; }
 
-  /* On mobile, photo narrower and fade starts earlier */
+  /* On mobile — photo left edge is at ~38% (100% - 62%). Keep gradient solid up to 38%. */
   .hero-bg-photo { width: 62%; }
   .hero-fade-overlay {
     background:
       linear-gradient(
         to right,
         #0d1117 0%,
-        #0d1117 14%,
-        rgba(13,17,23,0.94) 32%,
-        rgba(13,17,23,0.55) 52%,
-        rgba(13,17,23,0.10) 72%,
-        transparent 88%
+        #0d1117 16%,
+        rgba(13,17,23,0.97) 36%,
+        rgba(13,17,23,0.85) 44%,
+        rgba(13,17,23,0.55) 54%,
+        rgba(13,17,23,0.18) 66%,
+        transparent 80%
       ),
       linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 50%);
   }

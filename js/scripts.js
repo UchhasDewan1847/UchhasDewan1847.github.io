@@ -97,17 +97,31 @@ const filterBtns = document.querySelectorAll('.cert-filter-btn');
 if (filterBtns.length) {
   const allCards = document.querySelectorAll('.cert-card-v2[data-category]');
 
-  // Dynamically update filter button counts so they never go stale
-  filterBtns.forEach(btn => {
-    const filter = btn.dataset.filter;
-    const countEl = btn.querySelector('.cert-count');
-    if (countEl) {
+  // Only run cert-specific logic when cert cards actually exist on this page.
+  // (projects.html reuses .cert-filter-btn for styling but has no .cert-card-v2)
+  if (allCards.length) {
+    // Cache count for the main-page stat (rounded down to nearest 5)
+    const rounded = Math.floor(allCards.length / 5) * 5;
+    localStorage.setItem('certCount', String(allCards.length));
+    localStorage.setItem('certCountRounded', String(rounded));
+
+    // Keep cert-page header description in sync
+    const certDesc = document.querySelector('.cert-page-header p');
+    if (certDesc) {
+      certDesc.textContent = `${allCards.length} certificates — online courses, specializations, workshops & extracurricular achievements`;
+    }
+
+    // Update filter button counts dynamically
+    filterBtns.forEach(btn => {
+      const filter = btn.dataset.filter;
+      const countEl = btn.querySelector('.cert-count');
+      if (!countEl) return;
       const n = filter === 'all'
         ? allCards.length
         : document.querySelectorAll(`.cert-card-v2[data-category="${filter}"]`).length;
       countEl.textContent = n;
-    }
-  });
+    });
+  }
 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -125,12 +139,25 @@ if (filterBtns.length) {
 // ==================== Project Filters (projects.html only) ====================
 const projFilterBtns = document.querySelectorAll('.proj-filter-btn');
 if (projFilterBtns.length) {
+  const allProjCards = document.querySelectorAll('.proj-card[data-category]');
+
+  // Update project filter button counts dynamically
+  projFilterBtns.forEach(btn => {
+    const filter = btn.dataset.filter;
+    const countEl = btn.querySelector('.cert-count');
+    if (!countEl) return;
+    const n = filter === 'all'
+      ? allProjCards.length
+      : document.querySelectorAll(`.proj-card[data-category="${filter}"]`).length;
+    countEl.textContent = n;
+  });
+
   projFilterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       projFilterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       const filter = btn.dataset.filter;
-      document.querySelectorAll('.proj-card').forEach(card => {
+      allProjCards.forEach(card => {
         const match = filter === 'all' || card.dataset.category === filter;
         card.classList.toggle('hidden', !match);
       });
@@ -139,6 +166,18 @@ if (projFilterBtns.length) {
 }
 
 // ==================== Stat Counters ====================
+// Sync the cert stat on index.html from the cached count (set when certificates.html is visited).
+// Falls back to the hardcoded data-target if localStorage is empty.
+const certStatEl = document.getElementById('cert-stat');
+if (certStatEl) {
+  const stored = localStorage.getItem('certCountRounded');
+  if (stored && parseInt(stored) > 0) {
+    certStatEl.dataset.target = stored;
+    certStatEl.dataset.suffix = '+';
+    certStatEl.textContent = '0+';
+  }
+}
+
 const statNumbers = document.querySelectorAll('.stat-number');
 if (statNumbers.length) {
   const statObserver = new IntersectionObserver((entries) => {
