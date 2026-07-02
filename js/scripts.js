@@ -15,6 +15,30 @@ themeToggle.addEventListener('click', () => {
   applyTheme(next);
 });
 
+// ==================== Font Size Toggle ====================
+const fontToggle = document.getElementById('font-toggle');
+if (fontToggle) {
+  const fontSizes = ['normal', 'large', 'xl'];
+  const fontLabels = { normal: 'A', large: 'A+', xl: 'A++' };
+
+  function applyFontSize(size) {
+    document.documentElement.setAttribute('data-font', size === 'normal' ? '' : size);
+    if (size === 'normal') document.documentElement.removeAttribute('data-font');
+    fontToggle.textContent = fontLabels[size];
+    fontToggle.title = size === 'normal' ? 'Increase font size' : size === 'large' ? 'Increase font size more' : 'Reset font size';
+  }
+
+  const saved = localStorage.getItem('fontsize') || 'normal';
+  applyFontSize(saved);
+
+  fontToggle.addEventListener('click', () => {
+    const current = localStorage.getItem('fontsize') || 'normal';
+    const next = fontSizes[(fontSizes.indexOf(current) + 1) % fontSizes.length];
+    localStorage.setItem('fontsize', next);
+    applyFontSize(next);
+  });
+}
+
 // ==================== Typing Effect ====================
 const roles = [
   'Software Engineer',

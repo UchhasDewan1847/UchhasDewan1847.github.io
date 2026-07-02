@@ -100,6 +100,30 @@ body {
   background: var(--card-bg);
 }
 
+.font-toggle {
+  position: absolute;
+  right: 70px;
+  background: none;
+  border: 1.5px solid var(--card-border);
+  border-radius: 8px;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 5px 10px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  font-family: inherit;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.font-toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--card-bg);
+}
+
+html[data-font="large"] { font-size: 112%; }
+html[data-font="xl"]    { font-size: 125%; }
+
 /* ==================== Hero Header ==================== */
 .hero-header {
   position: relative;
@@ -222,6 +246,26 @@ body {
 @keyframes heroFadeUp {
   from { opacity: 0; transform: translateY(22px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Hero circular avatar (portrait photo) */
+.hero-avatar-wrap {
+  position: absolute;
+  bottom: 44px;
+  right: 48px;
+  z-index: 2;
+  animation: heroFadeUp 0.75s ease 0.6s both;
+}
+
+.hero-avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 15%;
+  border: 3px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+  display: block;
 }
 
 @keyframes blink {
@@ -738,6 +782,9 @@ em { color: var(--accent); font-style: normal; }
 .cert-badge-extra    { background: rgba(255, 165, 0, 0.12); color: #b07800; }
 [data-theme="dark"] .cert-badge-extra { color: #ffa500; }
 
+.cert-badge-workshop { background: rgba(88, 166, 255, 0.12); color: #1a6fa8; }
+[data-theme="dark"] .cert-badge-workshop { color: #58a6ff; }
+
 /* Image cert cards */
 .cert-img-card { flex-direction: column; }
 
@@ -1105,11 +1152,12 @@ footer {
   .stat-number { font-size: 1.9rem; }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .hero-header { height: 62vh; min-height: 380px; }
   .hero-content h1 { font-size: 2.2rem; }
   .hero-content { padding: 0 20px 36px; }
 
+  /* Fix nav overlap on all phones */
   .top-nav { justify-content: space-between; padding: 0 10px; }
 
   .nav-links {
@@ -1118,12 +1166,14 @@ footer {
     gap: 12px;
     flex-shrink: 1;
     scrollbar-width: none;
+    min-width: 0;
   }
 
   .nav-links::-webkit-scrollbar { display: none; }
   .nav-links a { font-size: 0.78rem; white-space: nowrap; }
 
   .theme-toggle { position: static; flex-shrink: 0; padding: 5px 9px; }
+  .font-toggle  { position: static; flex-shrink: 0; padding: 4px 8px; font-size: 0.76rem; }
 
   .content-wrap { padding: 20px 14px 50px; }
 
@@ -1136,4 +1186,7 @@ footer {
   .tech-icon-grid { gap: 10px; padding: 18px; }
   .tech-icon-item { width: 62px; }
   .tech-icon-item i { font-size: 1.9rem; }
+
+  .hero-avatar-wrap { bottom: 28px; right: 20px; }
+  .hero-avatar { width: 100px; height: 100px; }
 }
