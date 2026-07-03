@@ -135,28 +135,20 @@ html[data-font="xl"]    { font-size: 125%; }
   width: 100%;
   height: 72vh;
   min-height: 460px;
-  background: linear-gradient(135deg, #0d1117 0%, #101820 100%);
+  /* Photo pinned to right, stays fixed while page scrolls */
+  background-color: #0d1117;
+  background-image: url('../resources/propicJun26.jpeg');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-size: 50% auto;
   display: flex;
   align-items: flex-end;
   overflow: hidden;
 }
 
-/* Portrait photo — right 48% of hero, shows upper body / face */
-.hero-bg-photo {
-  position: absolute;
-  right: 0;
-  top: 0;
-  height: 100%;
-  width: 48%;
-  object-fit: cover;
-  object-position: top center;
-  z-index: 0;
-  display: block;
-}
-
-/* Fade overlay: left-to-right (photo fades into bg) + bottom darkening (text readability) */
-/* Photo left edge sits at ~52% (= 100% - 48% width).
-   Gradient must be nearly opaque AT that edge, then fade right. */
+/* Smooth left-to-right fade + bottom darkening for text readability.
+   Fade spans from ~18% all the way to 90% for a very gradual blend. */
 .hero-fade-overlay {
   position: absolute;
   inset: 0;
@@ -165,18 +157,21 @@ html[data-font="xl"]    { font-size: 125%; }
     linear-gradient(
       to right,
       #0d1117 0%,
-      #0d1117 32%,
-      rgba(13, 17, 23, 0.97) 50%,
-      rgba(13, 17, 23, 0.88) 57%,
-      rgba(13, 17, 23, 0.60) 65%,
-      rgba(13, 17, 23, 0.25) 74%,
-      rgba(13, 17, 23, 0.06) 83%,
-      transparent 92%
+      #0d1117 18%,
+      rgba(13, 17, 23, 0.99) 26%,
+      rgba(13, 17, 23, 0.95) 34%,
+      rgba(13, 17, 23, 0.86) 42%,
+      rgba(13, 17, 23, 0.70) 50%,
+      rgba(13, 17, 23, 0.48) 58%,
+      rgba(13, 17, 23, 0.26) 66%,
+      rgba(13, 17, 23, 0.09) 74%,
+      rgba(13, 17, 23, 0.02) 82%,
+      transparent 90%
     ),
     linear-gradient(
       to top,
-      rgba(0, 0, 0, 0.60) 0%,
-      rgba(0, 0, 0, 0.15) 28%,
+      rgba(0, 0, 0, 0.55) 0%,
+      rgba(0, 0, 0, 0.12) 28%,
       transparent 55%
     );
 }
@@ -190,6 +185,8 @@ html[data-font="xl"]    { font-size: 125%; }
   padding: 0 28px 44px;
   color: #fff;
 }
+
+/* .hero-bg-photo removed — photo is now a CSS background-image on hero-header */
 
 .hero-content h1 {
   font-size: 3.2rem;
@@ -1171,19 +1168,25 @@ footer {
   .hero-content { padding: 0 20px 36px; }
   .hero-content h1 { font-size: 2.2rem; }
 
-  /* On mobile — photo left edge is at ~38% (100% - 62%). Keep gradient solid up to 38%. */
-  .hero-bg-photo { width: 62%; }
+  /* Mobile: fixed attachment broken on iOS Safari, use scroll + wider photo */
+  .hero-header {
+    background-attachment: scroll;
+    background-size: 65% auto;
+    background-position: right top;
+  }
   .hero-fade-overlay {
     background:
       linear-gradient(
         to right,
         #0d1117 0%,
-        #0d1117 16%,
-        rgba(13,17,23,0.97) 36%,
-        rgba(13,17,23,0.85) 44%,
-        rgba(13,17,23,0.55) 54%,
+        #0d1117 10%,
+        rgba(13,17,23,0.99) 20%,
+        rgba(13,17,23,0.92) 30%,
+        rgba(13,17,23,0.72) 42%,
+        rgba(13,17,23,0.45) 54%,
         rgba(13,17,23,0.18) 66%,
-        transparent 80%
+        rgba(13,17,23,0.04) 76%,
+        transparent 86%
       ),
       linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 50%);
   }
