@@ -165,6 +165,34 @@ if (projFilterBtns.length) {
   });
 }
 
+// ==================== Book Filters (books.html only) ====================
+const bookFilterBtns = document.querySelectorAll('.book-filter-btn');
+if (bookFilterBtns.length) {
+  const allBookCards = document.querySelectorAll('.book-card[data-category]');
+
+  bookFilterBtns.forEach(btn => {
+    const filter = btn.dataset.filter;
+    const countEl = btn.querySelector('.cert-count');
+    if (!countEl) return;
+    const n = filter === 'all'
+      ? allBookCards.length
+      : document.querySelectorAll(`.book-card[data-category="${filter}"]`).length;
+    countEl.textContent = n;
+  });
+
+  bookFilterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      bookFilterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      allBookCards.forEach(card => {
+        const match = filter === 'all' || card.dataset.category === filter;
+        card.classList.toggle('hidden', !match);
+      });
+    });
+  });
+}
+
 // ==================== Stat Counters ====================
 // Sync the cert stat on index.html from the cached count (set when certificates.html is visited).
 // Falls back to the hardcoded data-target if localStorage is empty.

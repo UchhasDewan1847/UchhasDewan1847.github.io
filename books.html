@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Favourite Books | Uchhas Dewan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <nav class="top-nav" id="top-nav">
+    <div class="nav-links">
+      <a href="index.html"><i class="fas fa-arrow-left"></i> Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="certificates.html">Certificates</a>
+    </div>
+    <div class="nav-actions">
+      <button class="font-toggle" id="font-toggle" title="Increase font size">A</button>
+      <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+      </button>
+    </div>
+  </nav>
+
+  <div class="content-wrap">
+
+    <div class="cert-page-header reveal">
+      <h1>Favourite Books</h1>
+      <p>Finished reads and what I'm currently working through</p>
+    </div>
+
+    <div class="cert-filters reveal">
+      <button class="book-filter-btn cert-filter-btn active" data-filter="all">All <span class="cert-count">8</span></button>
+      <button class="book-filter-btn cert-filter-btn" data-filter="reading">Currently Reading <span class="cert-count">5</span></button>
+      <button class="book-filter-btn cert-filter-btn" data-filter="completed">Completed <span class="cert-count">3</span></button>
+    </div>
+
+    <div class="book-grid">
+
+      <div class="book-card reveal" data-category="reading">
+        <div class="book-cover book-cover-placeholder">
+          <i class="fas fa-book"></i>
+        </div>
+        <div class="book-card-body">
+          <span class="book-badge book-badge-reading">Currently Reading</span>
+          <h3>AI Engineering: Building Applications with Foundation Models</h3>
+          <p class="book-author">Chip Huyen</p>
+        </div>
+      </div>
+
+      <div class="book-card reveal" data-category="reading">
+        <div class="book-cover book-cover-placeholder">
+          <i class="fas fa-book"></i>
+        </div>
+        <div class="book-card-body">
+          <span class="book-badge book-badge-reading">Currently Reading</span>
+          <h3>Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow</h3>
+          <p class="book-author">Aurélien Géron</p>
+        </div>
+      </div>
+
+      <div class="book-card reveal" data-category="reading">
+        <div class="book-cover book-cover-placeholder">
+          <i class="fas fa-book"></i>
+        </div>
+        <div class="book-card-body">
+          <span class="book-badge book-badge-reading">Currently Reading</span>
+          <h3>Homo Deus: A Brief History of Tomorrow</h3>
+          <p class="book-author">Yuval Noah Harari</p>
+        </div>
+      </div>
+
+      <div class="book-card reveal" data-category="reading">
+        <div class="book-cover book-cover-placeholder">
+          <i class="fas fa-book"></i>
+        </div>
+        <div class="book-card-body">
+          <span class="book-badge book-badge-reading">Currently Reading</span>
+          <h3>The Art of Thinking Clearly</h3>
+          <p class="book-author">Rolf Dobelli</p>
+        </div>
+      </div>
+
+      <div class="book-card reveal" data-category="reading">
+        <div class="book-cover book-cover-placeholder">
+          <i class="fas fa-book"></i>
+        </div>
+        <div class="book-card-body">
+          <span class="book-badge book-badge-reading">Currently Reading</span>
+          <h3>Hyperfocus: How to Be More Productive in a World of Distraction</h3>
+          <p class="book-author">Chris Bailey</p>
+        </div>
+      </div>
+
+      <div class="book-card reveal" data-category="completed">
+        <div class="book-cover book-cover-placeholder">
+          <i class="fas fa-book"></i>
+        </div>
+        <div class="book-card-body">
+          <span class="book-badge book-badge-completed">Completed</span>
+          <h3>Ikigai: The Japanese Secret to a Long and Happy Life</h3>
+          <p class="book-author">Héctor García &amp; Francesc Miralles</p>
+        </div>
+      </div>
+
+      <div class="book-card reveal" data-category="completed">
+        <div class="book-cover book-cover-placeholder">
+          <i class="fas fa-book"></i>
+        </div>
+        <div class="book-card-body">
+          <span class="book-badge book-badge-completed">Completed</span>
+          <h3>Software Engineering: A Practitioner's Approach</h3>
+          <p class="book-author">Roger S. Pressman</p>
+        </div>
+      </div>
+
+      <div class="book-card reveal" data-category="completed">
+        <div class="book-cover book-cover-placeholder">
+          <i class="fas fa-book"></i>
+        </div>
+        <div class="book-card-body">
+          <span class="book-badge book-badge-completed">Completed</span>
+          <h3>The Psychology of Money</h3>
+          <p class="book-author">Morgan Housel</p>
+        </div>
+      </div>
+
+    </div>
+
+    <footer>
+      <p>&copy; 2025 Uchhas Dewan. All rights reserved.</p>
+    </footer>
+
+  </div>
+
+  <script src="js/scripts.js"></script>
+</body>
+</html>

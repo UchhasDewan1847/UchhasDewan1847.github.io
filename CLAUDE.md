@@ -31,18 +31,21 @@ Push with `git push origin main`. If credentials aren't cached, run `git push` i
 One shared stylesheet (`css/styles.css`) and one shared script (`js/scripts.js`) used by all pages. No framework, no bundler.
 
 **Pages:**
-- `index.html` — main portfolio (hero, about, projects teaser, experience, skills, education, tests, publications, cert teaser)
+- `index.html` — main portfolio (hero, about, projects teaser, experience, skills, education, tests, publications, cert teaser, books teaser)
 - `certificates.html` — dedicated certificates page with filter tabs
 - `projects.html` — dedicated projects page with filter tabs
+- `books.html` — dedicated books page with filter tabs (Favorites / Currently Reading / Completed). Cards currently hold placeholder titles/authors marked with `<!-- PLACEHOLDER -->` comments — replace as real books are added
 
 **`js/scripts.js` sections (order matters — each guarded for the page it applies to):**
 1. Dark mode toggle (localStorage, applies to all pages)
-2. Typing effect — guarded with `if (typedEl)` since `#typed-text` only exists on `index.html`
-3. Scroll reveal — `IntersectionObserver` on `.reveal` elements, adds `.visible` class
-4. Certificate filters — `if (filterBtns.length)`, toggles `.hidden` on `.cert-card-v2`
-5. Project filters — `if (projFilterBtns.length)`, toggles `.hidden` on `.proj-card`
-6. Stat counters — `if (statNumbers.length)`, animates `.stat-number[data-target]` on scroll
-7. Active nav highlight — `IntersectionObserver` on `section[id]`, only meaningful on `index.html`
+2. Font size toggle — guarded with `if (fontToggle)`; cycles `normal → large → xl` via `data-font` on `<html>`, persisted in localStorage
+3. Typing effect — guarded with `if (typedEl)` since `#typed-text` only exists on `index.html`
+4. Scroll reveal — `IntersectionObserver` on `.reveal` elements, adds `.visible` class
+5. Certificate filters — `if (filterBtns.length)`, toggles `.hidden` on `.cert-card-v2`. Also recomputes the total cert count and caches it in `localStorage` (`certCount`, `certCountRounded`, rounded down to nearest 5) so `index.html` can read it
+6. Project filters — `if (projFilterBtns.length)`, toggles `.hidden` on `.proj-card`
+7. Book filters — `if (bookFilterBtns.length)`, toggles `.hidden` on `.book-card`
+8. Stat counters — `if (statNumbers.length)`, animates `.stat-number[data-target]` on scroll. The `#cert-stat` counter on `index.html` overrides its `data-target` from the `certCountRounded` value cached by step 5 if present, else falls back to the hardcoded value in the HTML — so the homepage stat only reflects an accurate count after `certificates.html` has been visited at least once in that browser
+9. Active nav highlight — `IntersectionObserver` on `section[id]`, only meaningful on `index.html`
 
 **Key CSS patterns:**
 - Theme variables on `:root` and `[data-theme="dark"]` — all colors go through variables, never hardcoded
@@ -70,10 +73,13 @@ All loaded in `<head>` of each page that needs them:
 ```
 resources/
   CV/Updated_CV.pdf                          — downloadable CV (linked from hero)
-  propicJun26.jpeg                           — hero cover photo (referenced in CSS, not HTML)
+  coverpic.jpeg                              — hero cover photo (referenced in CSS, not HTML); portrait 2:3 source, cropped via background-position
+  propicJun26.jpeg, propicjul26.jpeg         — earlier hero photos, no longer referenced; safe to delete
   certificates/
     Coursera_pics/*.jpg                      — certificate screenshots (case-sensitive: capital C)
     extraCurricular/*.jpeg                   — extracurricular cert photos
+    seminer/*.jpg                            — workshop/seminar certificate photos
+  books/                                     — not yet created; convention for future book cover images
 ```
 
 Filenames with special characters (`(`, `,`) must be URL-encoded in HTML `src`/`href` attributes:
