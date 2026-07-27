@@ -331,10 +331,11 @@ html[data-font="xl"]    { font-size: 125%; }
 .section { margin-bottom: 58px; }
 
 #about p {
-  text-align: justify;
-  hyphens: auto;
-  -webkit-hyphens: auto;
+  line-height: 1.75;
+  margin-bottom: 16px;
 }
+
+#about p:last-child { margin-bottom: 0; }
 
 h2 {
   color: var(--accent);
