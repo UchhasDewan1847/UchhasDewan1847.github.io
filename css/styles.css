@@ -837,6 +837,24 @@ em { color: var(--accent); font-style: normal; }
 
 .cert-img-card .cert-card-v2-body { padding-top: 14px; }
 
+/* Dual image cert cards (e.g. front/back of a medal) */
+.cert-img-wrap-dual {
+  display: flex;
+  gap: 2px;
+  max-height: 180px;
+  overflow: hidden;
+}
+
+.cert-img-wrap-dual .cert-img-wrap {
+  flex: 1;
+  max-height: 180px;
+}
+
+.cert-img-wrap-dual .cert-img-wrap img {
+  height: 180px;
+  object-position: center;
+}
+
 /* ==================== Books Page ==================== */
 .book-grid {
   display: grid;
